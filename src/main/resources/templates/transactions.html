@@ -8,9 +8,8 @@
 		<h2>Transaction History</h2>
 		
 		<table>
-			<tr>
-				<input>
-				<th>ID</th>
+			<tr th:field="${transaction.id}" type="hidden">
+				<th th:inline="text">ID</th>
 				<th>Date</th>
 				<th>Retailer</th>
 				<th>Funds In</th>
@@ -19,15 +18,29 @@
 			<!-- These 4 rows below are for demonstration purposes only
 			     You will need to edit the code below in order to make
 			     it dynamically list ALL 100 transactions from the Repo -->
+			<tr th:each="transaction : ${transactions}">
+				<td th:text="${transaction.id}"><a href="/transactions/50">50</a></td>
+				<td th:text="${#temporals.format(transaction.date, 'yyyy-MM-dd HH:mm a')}">2020-01-01T19:04:48</td>
+				<td th:text="${transaction.retailer}">H-E-B Grocery</td>
+				<!-- Display amount in Funds In column if type is 'IN' -->
+				<td th:if="${transaction.type == 'Funds In'}" th:text="${transaction.amount}">Funds In</td>
+				<td th:unless="${transaction.type == 'Funds In'}">-</td>
+				<!-- Display amount in Funds Out column if type is 'OUT' -->
+				<td th:if="${transaction.type == 'Funds Out'}" th:text="${transaction.amount}">Funds Out</td>
+				<td th:unless="${transaction.type == 'Funds Out'}">-</td>
+<!--				<td th:text="${transaction.amount}"></td>-->
+<!--				<td th:text="${transaction.amount}">41.36</td>-->
+			</tr>
+
+
+
+
 			<tr>
-<!--				<td th:field="${transaction.id}" type="hidden"><a href="/transactions/50">50</a></td>-->
-				<td th:field="${transaction.id}" type="hidden"><a th:href="@{/transactions/{transactionId}(transactionId=${transaction.id})}">50</a></td>
-
-
-				<td th:field="${transaction.date}">2020-01-01T19:04:48</td>
-				<td th:field="${transaction.retailer}">H-E-B Grocery</td>
-				<td th:field="${transaction.amount}"></td>
-				<td th:field="${transaction.amount}">41.36</td> <!-- $41.36  (Debit) Funds In -->
+				<td><a href="/transactions/50">50</a></td>
+				<td>2020-01-01T19:04:48</td>
+				<td>H-E-B Grocery</td>
+				<td></td>
+				<td>41.36</td>
 			</tr>
 			<tr>
 				<td><a href="/transactions/1">1</a></td>
