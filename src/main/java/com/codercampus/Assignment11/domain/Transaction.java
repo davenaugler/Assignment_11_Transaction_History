@@ -11,10 +11,10 @@ public class Transaction implements Serializable {
 	
 	private Long id;             // Check
 	private String retailer;     // Check
-	private String description;  // Not yet
+	private String description;  // Specifics on the store
 	private LocalDateTime date;  // Check
 	private BigDecimal amount;   // Funds In (Debit)   Funds Out (Credit)
-	private String type;         // type?
+	private String type;         // 'C' or 'D'
 
 
 

@@ -1,0 +1,71 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Online Bank</title>-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<section class="section">-->
+<!--    <div class="container">-->
+<!--        <h2 class="title">Transaction ID:&nbsp;<span th:text="${transaction.id}"></span>&nbsp;<span-->
+<!--                th:text="${transaction.type == 'C' ? '(Credit)' : '(Debit)'}"></span></h2>-->
+<!--        <table class="table is-striped is-hoverable is-narrow is-hoverable">-->
+<!--            <tbody>-->
+<!--            <tr>-->
+<!--                <th>Date</th>-->
+<!--                <td th:text="${#temporals.format(transaction.date, 'yyyy-MM-dd hh:mm a')}"></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <th>Amount</th>-->
+<!--                <td th:text="'$' + ${transaction.amount}"></td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <th>Description</th>-->
+<!--                <td><span th:text="${transaction.retailer}"></span>&nbsp;<span-->
+<!--                        th:text="${transaction.description}"></span></td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--        <a href="/transactions" class="button is-success mt-2">Back</a>-->
+<!--    </div>-->
+<!--</section>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Online Bank</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <h2 class="title">
+            Transaction ID:&nbsp;<span th:text="${transaction.id}"></span>
+            <span th:text="${transaction.type == 'C' ? '(Credit)' : '(Debit)'}"></span>
+        </h2>
+        <table class="table is-striped is-narrow is-hoverable">
+            <tbody>
+            <tr>
+                <th>Date</th>
+                <td th:text="${#temporals.format(transaction.date, 'MM/dd/yyyy hh:mm a')}"></td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td th:text="'$' + ${transaction.amount}"></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <span th:text="${transaction.retailer}"></span>
+                    &nbsp;<span th:text="${transaction.description}"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="/transactions" class="button is-success mt-2">Back</a>
+    </div>
+</section>
+</body>
+</html>

@@ -24,8 +24,17 @@ public class TransactionRepository {
 	}
 
 	public Transaction findById(Integer transactionId) {
-		return transactions.get(transactionId);
+//		the -1 is a temporary fix for now
+		return transactions.get(transactionId-1);
 	}
+
+//	public Transaction findById(Integer transactionId) {
+//		// Use stream API to find the first transaction matching the given ID
+//		return transactions.stream()
+//				.filter(transaction -> transactionId.equals(transaction.getId()))
+//				.findFirst()
+//				.get();
+//	}
 
 	/*
 	 * To populate the transactions list with previously "serialized" data from the transactions.txt file
