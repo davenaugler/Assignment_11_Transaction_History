@@ -71,7 +71,7 @@
                     <a th:href="@{/transactions/{transactionId}(transactionId=${transaction.id})}"><strong
                             th:text="${transaction.id}"></strong></a>
                 </td>
-                <td th:text="${#temporals.format(transaction.date, 'MM/dd/yyyy &nbsp; hh:mm a')}"></td>
+                <td th:text="${#temporals.format(transaction.date, 'MM/dd/yyyy &nbsp; hh:mm:ss a')}"></td>
                 <td th:text="${transaction.retailer}"></td>
                 <!--                <td th:if="${transaction.type == 'C'}" th:text="'$' + ${transaction.amount}">Funds In</td>-->
                 <!--                <td th:if="${transaction.type == 'D'}" th:text="'$' + ${transaction.amount}">Funds Out</td>-->
