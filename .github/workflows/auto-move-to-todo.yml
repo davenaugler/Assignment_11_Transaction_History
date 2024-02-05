@@ -15,7 +15,7 @@ jobs:
           node-version: '20'
 
       # Your existing steps follow
-      - name: Move new issue to Backlog
+      - name: Move new issue to Todo
         uses: alex-page/github-project-automation-plus@v0.8.1
         with:
           project: Get Stuff Done
