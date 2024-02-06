@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Repository;
-
 import com.codercampus.Assignment11.domain.Transaction;
 
 @Repository
@@ -22,19 +20,6 @@ public class TransactionRepository {
 	public List<Transaction> findAll () {
 		return transactions;
 	}
-
-	public Transaction findById(Integer transactionId) {
-//		the -1 is a temporary fix for now
-		return transactions.get(transactionId-1);
-	}
-
-//	public Transaction findById(Integer transactionId) {
-//		// Use stream API to find the first transaction matching the given ID
-//		return transactions.stream()
-//				.filter(transaction -> transactionId.equals(transaction.getId()))
-//				.findFirst()
-//				.get();
-//	}
 
 	/*
 	 * To populate the transactions list with previously "serialized" data from the transactions.txt file
@@ -58,9 +43,6 @@ public class TransactionRepository {
 			this.transactions = (List<Transaction>) objectInputStream.readObject();
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
-		} 
-		
+		}
 	}
-
-
 }
