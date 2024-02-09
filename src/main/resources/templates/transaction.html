@@ -17,10 +17,12 @@
                 <th>Date</th>
                 <td th:text="${#temporals.format(transaction.date, 'MM/dd/yyyy hh:mm:ss a')}"></td>
             </tr>
+
             <tr>
                 <th>Amount</th>
-                <td th:text="'$' + ${transaction.amount}"></td>
+                <td th:text="${transaction.type == 'C' ? '-$' : '$'} + ${transaction.amount}"></td>
             </tr>
+
             <tr>
                 <th>Description</th>
                 <td>
