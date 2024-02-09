@@ -3,6 +3,7 @@
 <head>
     <title>Online Bank</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet"type="text/css" href="/css/custom-styles.css">
 </head>
 <body>
 <section class="section">
@@ -14,17 +15,17 @@
         <table class="table is-striped is-narrow is-hoverable">
             <tbody>
             <tr>
-                <th>Date</th>
+                <th>Date:</th>
                 <td th:text="${#temporals.format(transaction.date, 'MM/dd/yyyy hh:mm:ss a')}"></td>
             </tr>
 
             <tr>
-                <th>Amount</th>
+                <th>Amount:</th>
                 <td th:text="${transaction.type == 'C' ? '-$' : '$'} + ${transaction.amount}"></td>
             </tr>
 
             <tr>
-                <th>Description</th>
+                <th>Description:</th>
                 <td>
                     <span th:text="${transaction.description}"></span>
                 </td>

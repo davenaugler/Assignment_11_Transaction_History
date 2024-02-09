@@ -9,7 +9,7 @@
     <div class="container">
         <h2 class="title">Transaction History</h2>
 
-        <table class="table is-striped is-narrow is-hoverable">
+        <table class="table is-striped is-half is-hoverable">
             <thead>
 
             <tr>
@@ -27,11 +27,14 @@
                     <a th:href="@{/transactions/{transactionId}(transactionId=${transaction.id})}"><strong
                             th:text="${transaction.id}"></strong></a>
                 </td>
+
                 <td th:text="${#temporals.format(transaction.date, 'MM/dd/yyyy &nbsp; hh:mm:ss a')}"></td>
                 <td th:text="${transaction.retailer}"></td>
+
                 <!-- Display amount in Funds In column if type is 'C' (C = Credit) -->
                 <td th:if="${transaction.type == 'C'}" th:text="'$' + ${transaction.amount}">Funds In</td>
                 <td th:unless="${transaction.type == 'C'}"></td>
+
                 <!-- Display amount in Funds Out column if type is 'D' (D = Debit)-->
                 <td th:if="${transaction.type == 'D'}" th:text="'$' + ${transaction.amount}">Funds Out</td>
                 <td th:unless="${transaction.type == 'D'}"></td>
